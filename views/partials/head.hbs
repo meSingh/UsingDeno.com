@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+<title>UsingDeno - Web Applications using Deno</title>
+<meta name="description" content="A curated list of web applications using Deno to understand if it is stable enough for production">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="UsingDeno - Web Applications using Deno">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://usingdeno.com">
+<meta property="og:image" content="/social.png">
+
+<link rel="manifest" href="site.webmanifest">
+{{!-- <link rel="apple-touch-icon" href="icon.png"> --}}
+<!-- Place favicon.ico in the root directory -->
+
+<meta name="theme-color" content="#697EE3">
+
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+.modal-window {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+.modal-window:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-window > div {
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+}
+.modal-close {
+    color: #aaa;
+    line-height: 50px;
+    font-size: 80%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+}
+.modal-close:hover {
+    color: black;
+}
+</style>
