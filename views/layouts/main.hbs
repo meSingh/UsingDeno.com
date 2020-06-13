@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="">
+<head>
+    {{> head }}
+</head>
+<body>
+<header class="text-gray-700 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            {{!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+                viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg> --}}
+            <span class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full">
+                <i class="fad fa-dragon"></i>
+            </span>
+            <span class="ml-3 text-xl">UsingDeno</span>
+        </a>
+        <nav
+            class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+            <a href="#open-modal" class="mr-5 hover:text-gray-900">About</a>
+            <a href="https://deno.land/" target="_blank" class="mr-5 hover:text-gray-900">DenoLand</a>
+            <a href="https://github.com/meSingh/UsingDeno.com" target="_blank" class="mr-5 hover:text-gray-900">Github</a>
+        </nav>
+        <a
+            href="https://airtable.com/embed/shrgcfDww9BzDnzxs?backgroundColor=red"
+            data-mode="drawer_right"
+            data-submit-close-delay="5"
+            target="_blank"
+            class="inline-flex items-center bg-indigo-500 text-white border-0 py-2 px-3 focus:outline-none hover:bg-indigo-700 rounded text-base mt-2 md:mt-0 typeform-share">Submit your application
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</header>
+    {{{ body }}}
+
+    {{> foot }}
+
+    <div id="open-modal" class="modal-window">
+        <div class="text- max-w-screen-sm p-8">
+            <a href="#" title="Close" class="modal-close">Close</a>
+            <h1 class="text-2xl mt-4">
+                <span class="w-8 h-8 text-white p-2 bg-indigo-500 rounded-full mr-2">
+                    <i class="fad fa-dragon"></i>
+                </span>
+                UsingDeno
+            </h1>
+            <div class="py-8 ml-6 mr-8">
+                <p class="text-gray-700 mb-4">UsingDeno is a social experiment to observe how the community is using Deno and to understand if it is stable enough for more substantial, more complex web applications.</p>
+
+                <p class="text-gray-700">I request everyone using Deno to submit your applications so the community can grow even further and understand how Deno is maturing.</p>
+            </div>
+            <div class="px-5 py-4">
+                <a href="https://github.com/meSingh/UsingDeno.com" target="_blank"
+                    class="inline-block bg-gray-700 hover:bg-gray-900 rounded-full px-6 py-1 text-sm font-semibold text-white mr-2">
+                    <i class="fab fa-github"></i>
+                    Github
+                </a>
+                <a href="https://twitter.com/UsingDeno" target="_blank"
+                    class="inline-block bg-blue-400 hover:bg-blue-600 rounded-full px-6 py-1 text-sm font-semibold text-white mr-2">
+                    <i class="fab fa-twitter"></i>
+                    Twitter
+                </a>
+                <a href="https://www.msingh.com" target="_blank"
+                    class="inline-block bg-indigo-400 hover:bg-indigo-600 rounded-full px-6 py-1 text-sm font-semibold text-white">
+                    <i class="fad fa-user"></i>
+                    mSingh.com
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
