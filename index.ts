@@ -1,6 +1,8 @@
 import { Application, Router, send } from "https://deno.land/x/oak/mod.ts";
 import { Handlebars } from "https://deno.land/x/handlebars/mod.ts";
+import { existsSync } from "https://deno.land/std/fs/mod.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
+import { Marked } from "https://deno.land/x/markdown/mod.ts";
 
 const app = new Application();
 const handle = new Handlebars();
@@ -48,8 +50,36 @@ router
 
     context.response.body = await handle.renderView(
       "index",
-      { projects },
+      { projects: projects.reverse() },
     );
+  })
+  .get("/project/:id", async (context: any) => {
+    if (context.params && context.params.id) {
+      const res = await fetch(
+        `https://api.airtable.com/v0/appDmsiM7p756BLff/projects?maxRecords=100&view=published&filterByFormula={slug}="${context.params.id}"`,
+        // `https://api.airtable.com/v0/appDmsiM7p756BLff/projects/${context.params.id}`,
+        {
+          headers: {
+            "Authorization": `Bearer ${config().AIRTABLE_KEY}`,
+          },
+        },
+      );
+
+      const projects = await res.json();
+
+      console.log(projects);
+
+      if (projects.records[0].fields.description_long) {
+        projects.records[0].fields.description_long = Marked.parse(
+          projects.records[0].fields.description_long,
+        );
+      }
+
+      context.response.body = await handle.renderView(
+        "project",
+        { project: projects.records[0] },
+      );
+    }
   });
 
 // Listen to server events
@@ -71,10 +101,16 @@ app.use(router.allowedMethods());
 
 // Serve static content
 app.use(async (context) => {
-  await send(context, context.request.url.pathname, {
-    root: `${Deno.cwd()}/static`,
-    // index: "index.html",
-  });
+  if (existsSync(`${Deno.cwd()}/static/${context.request.url.pathname}`)) {
+    await send(context, context.request.url.pathname, {
+      root: `${Deno.cwd()}/static`,
+      // index: "index.html",
+    });
+  } else {
+    console.log(
+      `FILE DOEST NOT EXIST: ${context.request.method} ${context.request.url}`,
+    );
+  }
 });
 
 await app.listen({ port: 8000 });

@@ -3,10 +3,10 @@
 <head>
     {{> head }}
 </head>
-<body class="relative">
-<header class="text-gray-700 bg-gray-200 body-font">
+<body class="relative text-gray-700 body-font">
+<header class="bg-gray-200">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <a href="/" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
             {{!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
                 stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
                 viewBox="0 0 24 24">
@@ -19,9 +19,11 @@
         </a>
         <nav
             class="pb-2 md:pb-0 md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+            <a href="/" class="mr-5 hover:text-gray-900">Home</a>
             <a href="#open-modal" class="mr-5 hover:text-gray-900">About</a>
-            <a href="https://deno.land/" target="_blank" class="mr-5 hover:text-gray-900">DenoLand</a>
+            <a href="https://twitter.com/UsingDeno" target="_blank" class="mr-5 hover:text-gray-900">Twitter</a>
             <a href="https://github.com/meSingh/UsingDeno.com" target="_blank" class="mr-5 hover:text-gray-900">Github</a>
+            <a href="https://deno.land/" target="_blank" class="mr-5 hover:text-gray-900">DenoLand</a>
         </nav>
         <a
             href="https://airtable.com/embed/shrgcfDww9BzDnzxs?backgroundColor=red"
@@ -36,6 +38,36 @@
         </a>
     </div>
 </header>
+
+<section class="bg-gray-200">
+    <div class="container px-5 pt-12 pb-12 mx-auto">
+        <div class="flex flex-wrap justify-around items-center text-center lg:px-32">
+            <div class=" md:text-left ">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+                    Curated list of Web Applications <br>& Projects using Deno 🦕
+                </h1>
+                {{!-- <p class="lg:w-1/2 w-full leading-relaxed text-base">
+                    A curated list of web applications using Deno
+                </p> --}}
+                <div class="pt-8">
+                    {{!-- <a href="https://deno.land/" target="_blank" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4">
+                        <img src="https://deno.land/logo.svg" width="20" class="inline-block -mt-1" /> <span class="ml-1">DenoLand</span>
+                    </a> --}}
+                    <a href="https://airtable.com/embed/shrgcfDww9BzDnzxs?backgroundColor=red" data-mode="drawer_right"
+                        data-submit-close-delay="5" target="_blank"
+                        class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 border border-indigo-700 rounded shadow typeform-share">
+                        Submit your application
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-1 inline" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <img src="/deno.png" width="240px;" class="hidden md:block" />
+        </div>
+    </div>
+</section>
     {{{ body }}}
 
     {{> foot }}
