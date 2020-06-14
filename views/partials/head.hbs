@@ -4,9 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="{{#if project }}{{project.fields.title}} - UsingDeno.com{{else}}Web Applications using Deno - UsingDeno.com{{/if}}">
+<meta property="og:description" content="{{#if project }}{{project.fields.description}} via UsingDeno.com{{else}}A curated list of web applications using Deno to understand if it is stable enough for production{{/if}}">
 <meta property="og:type" content="website">
+<meta data-hid="og:site_name" name="og:site_name" content="UsingDeno.com">
 <meta property="og:url" content="{{#if project }}https://usingdeno.com/project/{{project.fields.slug}}{{else}}https://usingdeno.com{{/if}}">
 <meta property="og:image" content="{{#if project }}{{project.fields.images.[0].url}}{{else}}/social.png{{/if}}">
+<meta data-hid="twitter:site" name="twitter:site" content="@UsingDeno">
+<meta data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="UsingDeno">
+<meta data-hid="twitter:card" name="twitter:card" content="summary_large_image">
+<meta data-hid="mobile-web-app-capable" name="mobile-web-app-capable" content="yes">
+
+
+
 
 <link rel="manifest" href="/site.webmanifest">
 {{!-- <link rel="apple-touch-icon" href="icon.png"> --}}
