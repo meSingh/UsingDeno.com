@@ -10,14 +10,14 @@
             <div class="md:w-2/5 pl-10">
 
 
-                    <h2 class="text-2xl text-gray-800 font-medium title-font mb-2">{{ project.fields.title }}</h2>
-                    <p class="leading-relaxed text-base text-gray-800">
+                    <h2 class="text-2xl text-gray-800 font-medium title-font mb-4">{{ project.fields.title }}</h2>
+                    <div class="leading-relaxed text-base text-gray-800 content">
                         {{#if project.fields.description_long}}
                             {{{ project.fields.description_long }}}
                         {{else}}
                             {{ project.fields.description }}
                         {{/if}}
-                    </p>
+                    </div>
                     <p class="flex flex-wrap justify-between items-center pt-8">
                     <a href="{{ project.fields.url }}" target="_blank" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-12 border border-gray-400 rounded shadow inline-block w-auto">
                         Visit Project
@@ -26,7 +26,7 @@
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
                     </a>
-                    <a href="https://twitter.com/intent/tweet?hashtags=usingdeno%2Cdenoland%2Cdeno&text={{ project.fields.description_encoded }}&url=https%3A%2F%2Fusingdeno.com%2Fproject%2F{{ project.fields.slug }}&via=UsingDeno" class="ml-2 mr-1 font-medium hover:text-blue-400">Tweet it <i class="fab fa-twitter"></i></a>
+                    <a href="https://twitter.com/intent/tweet?hashtags=usingdeno%2Cdenoland%2Cdeno&text={{ project.fields.description_encoded }}&url=https%3A%2F%2Fusingdeno.com%2Fproject%2F{{ project.fields.slug }}&via=UsingDeno" target="_blank" class="ml-2 mr-1 font-medium hover:text-blue-400">Tweet it <i class="fab fa-twitter"></i></a>
                     </p>
 
                 </div>
