@@ -1,12 +1,12 @@
 <meta charset="utf-8">
-<title>UsingDeno - Web Applications using Deno</title>
-<meta name="description" content="A curated list of web applications using Deno to understand if it is stable enough for production">
+<title>{{#if project }}{{project.fields.title}} - UsingDeno.com{{else}}Web Applications using Deno - UsingDeno.com{{/if}}</title>
+<meta name="description" content="{{#if project }}{{project.fields.description}} via UsingDeno.com{{else}}A curated list of web applications using Deno to understand if it is stable enough for production{{/if}}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta property="og:title" content="UsingDeno - Web Applications using Deno">
+<meta property="og:title" content="{{#if project }}{{project.fields.title}} - UsingDeno.com{{else}}Web Applications using Deno - UsingDeno.com{{/if}}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://usingdeno.com">
-<meta property="og:image" content="/social.png">
+<meta property="og:url" content="{{#if project }}https://usingdeno.com/project/{{project.fields.slug}}{{else}}https://usingdeno.com{{/if}}">
+<meta property="og:image" content="{{#if project }}{{project.fields.images.[0].url}}{{else}}/social.png{{/if}}">
 
 <link rel="manifest" href="/site.webmanifest">
 {{!-- <link rel="apple-touch-icon" href="icon.png"> --}}

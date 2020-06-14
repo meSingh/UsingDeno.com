@@ -66,18 +66,20 @@ router
       );
 
       const projects = await res.json();
+      const project = projects.records[0];
 
-      console.log(projects);
-
-      if (projects.records[0].fields.description_long) {
-        projects.records[0].fields.description_long = Marked.parse(
-          projects.records[0].fields.description_long,
+      if (project.fields.description_long) {
+        project.fields.description_long = Marked.parse(
+          project.fields.description_long,
         );
       }
 
+      project.fields.description_encoded = encodeURIComponent(
+        project.fields.description,
+      );
       context.response.body = await handle.renderView(
         "project",
-        { project: projects.records[0] },
+        { project },
       );
     }
   });
