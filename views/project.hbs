@@ -1,0 +1,37 @@
+{{!-- {{> page/title }} --}}
+
+
+    <section class="container px-5 pt-24 pb-24 mx-auto">
+        <div class="flex flex-wrap">
+
+            <div class="md:w-3/5">
+            <img class="w-full border shadow-xl rounded-lg" src="{{ project.fields.images.[0].url }}" alt="{{ project.fields.title }}" style="">
+            </div>
+            <div class="md:w-2/5 pl-10">
+
+
+                    <h2 class="text-2xl text-gray-800 font-medium title-font mb-2">{{ project.fields.title }}</h2>
+                    <p class="leading-relaxed text-base text-gray-800">
+                        {{#if project.fields.description_long}}
+                            {{{ project.fields.description_long }}}
+                        {{else}}
+                            {{ project.fields.description }}
+                        {{/if}}
+                    </p>
+                    <a href="{{ project.fields.url }}" target="_blank" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-12 border border-gray-400 rounded shadow mt-8 inline-block w-auto">
+                        Visit Project
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            class="w-4 h-4 ml-1 inline" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+
+
+                </div>
+
+
+
+        </div>
+
+
+</section>
