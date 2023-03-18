@@ -1,7 +1,7 @@
 import { Application, Router, send } from "https://deno.land/x/oak/mod.ts";
 import { Handlebars } from "https://deno.land/x/handlebars/mod.ts";
 import { existsSync } from "https://deno.land/std/fs/mod.ts";
-import { config } from "https://deno.land/x/dotenv/mod.ts";
+import { configAsync } from "https://deno.land/x/dotenv/mod.ts";
 import { Marked } from "https://deno.land/x/markdown/mod.ts";
 
 const app = new Application();
@@ -40,7 +40,7 @@ router
       "https://api.airtable.com/v0/appDmsiM7p756BLff/projects?maxRecords=100&view=published",
       {
         headers: {
-          "Authorization": `Bearer ${config().AIRTABLE_KEY}`,
+          "Authorization": `Bearer ${configAsync().AIRTABLE_KEY}`,
         },
       },
     );
@@ -60,7 +60,7 @@ router
         // `https://api.airtable.com/v0/appDmsiM7p756BLff/projects/${context.params.id}`,
         {
           headers: {
-            "Authorization": `Bearer ${config().AIRTABLE_KEY}`,
+            "Authorization": `Bearer ${configAsync().AIRTABLE_KEY}`,
           },
         },
       );
