@@ -1,9 +1,9 @@
 import { Application, Router, send } from "https://deno.land/x/oak@v12.1.0/mod.ts";
 import { Handlebars } from "https://deno.land/x/handlebars@v0.9.0/mod.ts";
 import { existsSync } from "https://deno.land/std@0.179.0/fs/mod.ts";
-// import { configAsync } from "https://deno.land/x/dotenv/mod.ts";
-import { config } from "https://deno.land/x/dotenv@v2.0.0/mod.ts";
 import { Marked } from "https://raw.githubusercontent.com/meSingh/markdown/v3.0.0/mod.ts";
+
+const AIRTABLE_KEY = Deno.env.get("AIRTABLE_KEY");
 
 const app = new Application();
 const handle = new Handlebars();
@@ -41,7 +41,7 @@ router
       "https://api.airtable.com/v0/appDmsiM7p756BLff/projects?maxRecords=100&view=published",
       {
         headers: {
-          "Authorization": `Bearer ${config().AIRTABLE_KEY}`,
+          "Authorization": `Bearer ${AIRTABLE_KEY}`,
         },
       },
     );
@@ -61,7 +61,7 @@ router
         // `https://api.airtable.com/v0/appDmsiM7p756BLff/projects/${context.params.id}`,
         {
           headers: {
-            "Authorization": `Bearer ${config().AIRTABLE_KEY}`,
+            "Authorization": `Bearer ${AIRTABLE_KEY}`,
           },
         },
       );
@@ -103,17 +103,17 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 // Serve static content
-app.use(async (context) => {
-  if (existsSync(`${Deno.cwd()}/static/${context.request.url.pathname}`)) {
-    await send(context, context.request.url.pathname, {
-      root: `${Deno.cwd()}/static`,
-      // index: "index.html",
-    });
-  } else {
-    console.log(
-      `FILE DOEST NOT EXIST: ${context.request.method} ${context.request.url}`,
-    );
+app.use(async (context, next) => {
+  try {
+    await context.send({ root: `${Deno.cwd()}/static` });
+  } catch {
+    await next();
   }
 });
 
-await app.listen({ port: 8000 });
+const DEFAULT_PORT = 8000;
+const envPort = Deno.env.get("PORT");
+const port = envPort ? Number(envPort) : DEFAULT_PORT;
+
+
+await app.listen({ port });
