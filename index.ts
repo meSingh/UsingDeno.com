@@ -3,7 +3,7 @@ import { Handlebars } from "https://deno.land/x/handlebars@v0.9.0/mod.ts";
 import { existsSync } from "https://deno.land/std@0.179.0/fs/mod.ts";
 // import { configAsync } from "https://deno.land/x/dotenv/mod.ts";
 import { config } from "https://deno.land/x/dotenv@v2.0.0/mod.ts";
-import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
+import { Marked } from "https://raw.githubusercontent.com/meSingh/markdown/v3.0.0/mod.ts";
 
 const app = new Application();
 const handle = new Handlebars();
