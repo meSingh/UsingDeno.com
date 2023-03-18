@@ -19,4 +19,4 @@ jobs:
         with:
           project: usingdeno # the name of the project on Deno Deploy
           entrypoint: index.ts # the entrypoint to deploy
-          import-map: '/src/import_map.json'
+          import-map: import_map.json
