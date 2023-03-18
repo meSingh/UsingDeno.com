@@ -1,8 +1,9 @@
-import { Application, Router, send } from "https://deno.land/x/oak/mod.ts";
-import { Handlebars } from "https://deno.land/x/handlebars/mod.ts";
-import { existsSync } from "https://deno.land/std/fs/mod.ts";
-import { configAsync } from "https://deno.land/x/dotenv/mod.ts";
-import { Marked } from "https://deno.land/x/markdown/mod.ts";
+import { Application, Router, send } from "https://deno.land/x/oak@v12.1.0/mod.ts";
+import { Handlebars } from "https://deno.land/x/handlebars@v0.9.0/mod.ts";
+import { existsSync } from "https://deno.land/std@0.179.0/fs/mod.ts";
+// import { configAsync } from "https://deno.land/x/dotenv/mod.ts";
+import { config } from "https://deno.land/x/dotenv@v2.0.0/mod.ts";
+import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
 
 const app = new Application();
 const handle = new Handlebars();
@@ -40,7 +41,7 @@ router
       "https://api.airtable.com/v0/appDmsiM7p756BLff/projects?maxRecords=100&view=published",
       {
         headers: {
-          "Authorization": `Bearer ${configAsync().AIRTABLE_KEY}`,
+          "Authorization": `Bearer ${config().AIRTABLE_KEY}`,
         },
       },
     );
@@ -60,7 +61,7 @@ router
         // `https://api.airtable.com/v0/appDmsiM7p756BLff/projects/${context.params.id}`,
         {
           headers: {
-            "Authorization": `Bearer ${configAsync().AIRTABLE_KEY}`,
+            "Authorization": `Bearer ${config().AIRTABLE_KEY}`,
           },
         },
       );
